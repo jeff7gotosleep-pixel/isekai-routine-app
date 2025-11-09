@@ -1,0 +1,164 @@
+/* --- GENERAL --- */
+body {
+  font-family: 'Times New Roman', serif;
+  background-color: #fff;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --- HEADER --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+/* --- MENÚ --- */
+.dropdown {
+  position: relative;
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.bar {
+  width: 26px;
+  height: 3px;
+  background-color: #000;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+.menu-icon.active .bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-icon.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-icon.active .bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  min-width: 180px;
+  padding: 8px 0;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  transition: background 0.2s;
+}
+
+.dropdown-content a:hover {
+  background: #ff0055;
+  color: #fff;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+/* --- MAIN --- */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  padding: 40px 20px 80px;
+}
+
+/* --- TARJETAS --- */
+.card {
+  width: 90%;
+  max-width: 450px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  background: #fff;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(255,0,85,0.3);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-text {
+  padding: 20px;
+}
+
+.card-text h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.card-text p {
+  font-size: 1.05em;
+  color: #333;
+}
+
+/* --- RESPONSIVE --- */
+@media (min-width: 768px) {
+  .main {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card {
+    width: 300px;
+  }
+}
