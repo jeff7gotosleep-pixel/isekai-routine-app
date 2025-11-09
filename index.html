@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agenda Mackenzide</title>
+
+  <link rel="icon" type="image/png" href="img/menu/icon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <img src="img/menu/icon.png" alt="logo" class="logo">
+      <span>Agenda Mackenzide</span>
+    </div>
+
+    <nav class="dropdown">
+      <button class="menu-icon" id="menu-btn" aria-expanded="false" aria-controls="menu-content" aria-label="Abrir menú">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <div class="dropdown-content" id="menu-content">
+        <a href="#">Inicio</a>
+        <a href="#">Tareas Diarias</a>
+        <a href="#">Notificaciones</a>
+        <a href="#">Mini Notas</a>
+        <hr class="menu-sep">
+        <a href="#">Configuración</a>
+        <a href="#">Acerca de</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- SECCIÓN PRINCIPAL -->
+  <main class="main">
+    <section class="card" onclick="location.href='tareas.html'">
+      <img src="img/menu/tareas.png" alt="Tareas Diarias">
+      <div class="card-text">
+        <h2>Tareas diaria</h2>
+        <p>Mira las listas de tus tareas diarias a cumplir</p>
+      </div>
+    </section>
+
+    <section class="card" onclick="location.href='notificaciones.html'">
+      <img src="img/menu/notificaciones.png" alt="Notificaciones">
+      <div class="card-text">
+        <h2>Notificaciones</h2>
+        <p>Notificaciones para despertar</p>
+      </div>
+    </section>
+
+    <section class="card" onclick="location.href='mininotas.html'">
+      <img src="img/menu/mininotas.png" alt="Mini Notas">
+      <div class="card-text">
+        <h2>Mini Notas</h2>
+        <p>Mira las listas de tus mini agendas emergentes</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const menuContent = document.getElementById("menu-content");
+
+    menuBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const opened = menuContent.classList.toggle("show");
+      menuBtn.classList.toggle("active", opened);
+      menuBtn.setAttribute("aria-expanded", opened);
+    });
+
+    window.addEventListener("click", (e) => {
+      if (!menuContent.contains(e.target) && e.target !== menuBtn) {
+        menuContent.classList.remove("show");
+        menuBtn.classList.remove("active");
+        menuBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
+</body>
+</html>
